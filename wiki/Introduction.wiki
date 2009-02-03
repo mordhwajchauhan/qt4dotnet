@@ -1,0 +1,8 @@
+#labels Introduction
+#Project description
+
+= Introduction =
+
+Welcome to qt4dotnet project. Here you will find bindings for Trolltech's Qt 4 to use with any .NET language. 
+
+Please feel free to download the latest version, drop me a line, ask questions, report issues or contribute with the project in any way.
