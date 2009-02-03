@@ -8,7 +8,7 @@ Please feel free to download the latest version, drop me a line, ask questions, 
 == Usage ==
 
   * Download `qtjambi-4.4.3_01.dll.zip` (This contains the .NET assembly)
-  * Download `QtLibs4.4-win.zip` (This contains shared libraries that your app needs to run)
+  * Download `QtLibs4.4-win.zip` (This contains shared libraries that your app needs to be able to run)
   * Unzip both of them in a directory
   * Reference from your application the following libraries:
     * `qtjambi-4.4.3_01.dll`
