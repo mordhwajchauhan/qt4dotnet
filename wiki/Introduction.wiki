@@ -1,8 +1,19 @@
 #labels Introduction
-#Project description
-
 = Introduction =
 
 Welcome to qt4dotnet project. Here you will find bindings for Trolltech's Qt 4 to use with any .NET language. 
 
 Please feel free to download the latest version, drop me a line, ask questions, report issues or contribute with the project in any way.
+
+== Usage ==
+
+  * Download qtjambi-4.4.3_01.dll.zip (This contains the .NET assembly)
+  * Download QtLibs4.4-win.zip (This contains shared libraries that your app needs to run)
+  * Unzip both of them in a directory
+  * Reference from your application the following libraries:
+    * qtjambi-4.4.3_01.dll
+    * IKVM.OpenJDK.ClassLibrary.dll
+    * IKVM.Runtime.dll
+    * IKVM.Runtime.JNI.dll
+  * Copy the rest of the .dlls next to your application's executable or in a folder where Windows can find (i.e. C:\Windows\System32)
+  * Start coding!! 
