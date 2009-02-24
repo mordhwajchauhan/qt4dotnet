@@ -3,6 +3,8 @@
 
 In this example we show how to mix .NET events and Signals and Slots. In qt4dotnet it is discouraged to use custom Signals. Instead we encourage to use events. Also we recommend not to derive from QWidget when using events. Instead create a widget and make it public and use it when needed. Please pay attention to the signal and slots in this example.
 
+http://ekarchive.elikirk.com/david/example7.png
+
 {{{
 using System;
 using System.Collections.Generic;
