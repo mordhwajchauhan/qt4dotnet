@@ -1,9 +1,11 @@
 #labels Example,KDE4,MONO
 =Calendar Example=
 
-This was really easy to port from Qt Jambi. It took me 2 minutes. This example is running on KDE 4.2 and Mono 2.4 preview 3
+This was really easy to port from Qt Jambi. It took me 2 minutes. This example is running on KDE 4.2 with Mono 2.4 preview 3 and MacOS X 10.5 with Mono 2.4 preview 1
 
 http://ekarchive.elikirk.com/david/calendar.png
+http://ekarchive.elikirk.com/david/calendar-mac.png
+
 
 {{{
 using System;
