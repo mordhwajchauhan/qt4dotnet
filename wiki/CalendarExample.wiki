@@ -1,4 +1,4 @@
-#labels Example
+#labels Example,RunningonKDE4usingMONO
 =Calendar Example=
 
 This was really easy to port from Qt Jambi. It took me 2 minutes.
