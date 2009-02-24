@@ -1,3 +1,4 @@
+#labels Example
 =Tutorial 7=
 ==One Thing Leads To Another==
 
@@ -15,10 +16,10 @@ using com.trolltech.qt.gui;
 
 public class ConnectedSliders
 {
-	public QWidget widget {get;set;}
+    public QWidget widget {get;set;} //We expose a widget property instead of deriving from QWidget
     public ConnectedSliders()
     {
-		this.widget = new QWidget();
+	this.widget = new QWidget();
         QPushButton quit = new QPushButton(widget.tr("Quit"));
         quit.setFont(new QFont("Times", 18, QFont.Weight.Bold.value()));
 
@@ -33,7 +34,7 @@ public class ConnectedSliders
                 grid.addWidget(lcdRange.rwidget, row, column);
 
             if (previousRange != null)
-                lcdRange.valueChanged += new EventHandler<LCDRangeEventArgs>(previousRange.changeValue);
+                lcdRange.valueChanged += new EventHandler<LCDRangeEventArgs>(previousRange.changeValue); //We use events instead of custom Signals
                 previousRange = lcdRange;
             }
         }
@@ -43,25 +44,30 @@ public class ConnectedSliders
         widget.setLayout(layout);
         widget.setWindowTitle(widget.tr("One Thing Leads to Another"));
     }
-	public class LCDRangeEventArgs : EventArgs{
-		public int NewValue {get;set;}
-	}
+
+    public class LCDRangeEventArgs : EventArgs{
+        public int NewValue {get;set;}
+    }
+
     class LCDRange 
     {
         private QSlider slider;
-		public QWidget rwidget {get;set;}
-		public event EventHandler<LCDRangeEventArgs> valueChanged;
-		QLCDNumber lcd = new QLCDNumber(2);
-		public void changeValue(object sender, LCDRangeEventArgs args){
-			lcd.display(args.NewValue);
-			slider.setValue(args.NewValue);
-			if (valueChanged !=null){
-				valueChanged(this,args);
-			}
-		}
-		public void changeValue(int newVal){
-			this.changeValue(null, new LCDRangeEventArgs(){ NewValue = newVal });
-		}
+	public QWidget rwidget {get;set;}
+	public event EventHandler<LCDRangeEventArgs> valueChanged;//We use events instead of custom Signals
+	QLCDNumber lcd = new QLCDNumber(2);
+
+	public void changeValue(object sender, LCDRangeEventArgs args){
+	    lcd.display(args.NewValue);
+	    slider.setValue(args.NewValue);
+	    if (valueChanged !=null){
+	        valueChanged(this,args);
+	    }
+	}
+
+        //Slots work great! 
+	private void changeValue(int newVal){
+	    this.changeValue(null, new LCDRangeEventArgs(){ NewValue = newVal });
+	}
 
         public LCDRange()
         {
@@ -72,6 +78,7 @@ public class ConnectedSliders
             slider.setRange(0, 99);
             slider.setValue(0);
 
+            //We call a slot when the valueChanged signal is fired. This slot will fire the event we created. We do this to avoid the creation of a custom signal. Custom signals are not supported by qt4dotnet.
             slider.valueChanged.connect(this, "changeValue(int)");
 
             QVBoxLayout layout = new QVBoxLayout();
@@ -80,17 +87,16 @@ public class ConnectedSliders
             rwidget.setLayout(layout);
         }
     }
-	public void show(){
-		widget.show();			
-	}
+
+    public void show(){
+        widget.show();			
+    }
 	
-	public static void Main(string[] args) {
+    public static void Main(string[] args) {
         QApplication.initialize(args);
-
-	    ConnectedSliders widget = new ConnectedSliders();
+        ConnectedSliders widget = new ConnectedSliders();
     	widget.show();
-
     	QApplication.exec();
-	}
+    }
 }
 }}}
