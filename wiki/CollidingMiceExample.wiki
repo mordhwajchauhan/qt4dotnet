@@ -1,3 +1,4 @@
+#labels Example
 Colliding Mice Example:
 http://ekarchive.elikirk.com/david/collidingmice.jpg
 {{{
