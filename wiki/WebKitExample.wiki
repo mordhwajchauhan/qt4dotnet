@@ -1,3 +1,4 @@
+#labels Example
 =Webkit Example=
 Example using the webkit features
 http://ekarchive.elikirk.com/david/Webkit.jpg
